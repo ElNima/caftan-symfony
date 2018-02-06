@@ -1,0 +1,67 @@
+## To get started with security, check out the documentation:
+## https://symfony.com/doc/current/security.html
+#security:
+#    encoders:
+#        CAFTAN\AppBundle\Entity\User: sha512
+#        
+#    role_hierarchy:
+#        ROLE_ADMIN:       ROLE_USER
+#        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+#        
+#    providers:
+#        in_memory:
+#            memory: ~
+#        main:
+#            id: fos_user.user_provider.username
+#
+#    firewalls:
+#        main:
+#            pattern:    ^/
+#            anonymous:  true
+#            provider:   main
+#            form_login:
+#                login_path: fos_user_security_login
+#                check_path: fos_user_security_check
+#            logout:
+#                path:       fos_user_security_logout
+#                target:     /index.html
+#            remember_me:
+#                secret: "%secret%"
+#           
+
+
+# app/config/security.yml
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager 
+             
+#            logout: true
+            logout:
+                path:       fos_user_security_logout
+                target:     /index.html
+            
+            anonymous:  true
+#            remember_me:
+#                secret: "%secret%"
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/publier, role: ROLE_USER }
+        - { path: ^/admin/, role: ROLE_ADMIN }

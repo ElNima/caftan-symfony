@@ -1,0 +1,17 @@
+{% extends "CAFTANAdminBundle::layout.html.twig" %}
+{% block section %}
+
+    <h3>Formulaire d'adresses</h3>
+
+
+    <div class="well">
+
+        {{ form(form) }}
+
+    </div>
+
+    <ul>
+        <li class="btn btn-success"><a href="{{'caftan_admin_show_adresses'}}">back to list</a></li>
+       
+    </ul>
+{% endblock %}

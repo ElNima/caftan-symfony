@@ -1,0 +1,188 @@
+
+caftan_admin_show_annonces:
+    path:    /admin/show
+    defaults: { _controller: CAFTANAdminBundle:Annonce:show }
+    requirements:
+       
+        
+caftan_admin_create_annonces:
+    path:     /admin/create
+    defaults: { _controller: CAFTANAdminBundle:Annonce:create }
+    requirements:
+    
+
+caftan_admin_update_annonces:
+    path:     /admin/update/{id}
+    defaults:  
+        _controller: CAFTANAdminBundle:Annonce:update 
+        id: 1
+    requirements:
+        id: \d+
+     
+     
+        
+caftan_admin_delete_annonces:
+    path:     /admin/delete/{id}
+    defaults:  
+        _controller: CAFTANAdminBundle:Annonce:delete 
+        id: 1
+    requirements:
+        id: \d+
+   
+        
+caftan_admin_show_adresses:
+    path:     /admin/showadresse
+    defaults: { _controller: CAFTANAdminBundle:Adress:show }
+
+caftan_admin_create_adresses:
+    path:     /admin/createadresse
+    defaults: { _controller: CAFTANAdminBundle:Adress:create }
+    requirements:
+        id: \d+
+    
+
+caftan_admin_update_adresses:
+    path:     /admin/updateadresse/{id}
+    defaults:  
+        _controller: CAFTANAdminBundle:Adress:update 
+        id: 1
+    requirements:
+        id: \d+
+       
+        
+caftan_admin_delete_adresses:
+    path:     /admin/deleteadresse/{id}
+    defaults:  
+        _controller: CAFTANAdminBundle:Adress:delete 
+        id: 1
+    requirements:
+        id: \d+
+   
+        
+        
+        
+caftan_admin_show_images:
+    path:     /admin/showimage
+    defaults: { _controller: CAFTANAdminBundle:Image:show }
+
+caftan_admin_create_images:
+    path:     /admin/createimage
+    defaults: { _controller: CAFTANAdminBundle:Image:create }
+    requirements:
+        id: \d+
+        
+       
+caftan_admin_update_images:
+    path:     /admin/updateimage/{id}
+    defaults:  
+        _controller: CAFTANAdminBundle:Image:update 
+        id: 1
+    requirements:
+        id: \d+
+        
+        
+        
+caftan_admin_delete_images:
+    path:     /admin/deleteimage/{id}
+    defaults:  
+        _controller: CAFTANAdminBundle:Image:delete 
+        id: 1
+    requirements:
+        id: \d+
+       
+          
+        
+        
+        
+caftan_admin_show_users:
+    path:     /admin/showuser
+    defaults: { _controller: CAFTANAdminBundle:User:show }
+
+caftan_admin_create_users:
+    path:     /admin/createuser
+    defaults: { _controller: CAFTANAdminBundle:User:create }
+    requirements:
+        id: \d+
+        
+       
+caftan_admin_update_users:
+    path:     /admin/updateuser/{id}
+    defaults:  
+        _controller: CAFTANAdminBundle:User:update 
+        id: 1
+    requirements:
+        id: \d+
+        
+        
+        
+caftan_admin_delete_users:
+    path:     /admin/deleteuser/{id}
+    defaults:  
+        _controller: CAFTANAdminBundle:User:delete 
+        id: 1
+    requirements:
+        id: \d+
+                 
+        
+        
+        
+caftan_admin_show_messages:
+    path:     /admin/showmessage
+    defaults: { _controller: CAFTANAdminBundle:Message:show }
+
+caftan_admin_create_messages:
+    path:     /admin/createmessage
+    defaults: { _controller: CAFTANAdminBundle:Message:create }
+    requirements:
+        id: \d+
+        
+       
+caftan_admin_update_messages:
+    path:     /admin/updatemessage/{id}
+    defaults:  
+        _controller: CAFTANAdminBundle:Message:update 
+        id: 1
+    requirements:
+        id: \d+
+        
+        
+        
+caftan_admin_delete_messages:
+    path:     /deletemessage/{id}
+    defaults:  
+        _controller: CAFTANAdminBundle:Comment:delete 
+        id: 1
+    requirements:
+        id: \d+
+                         
+        
+        
+        
+caftan_admin_show_comments:
+    path:     /admin/showcomment
+    defaults: { _controller: CAFTANAdminBundle:Comment:show }
+
+caftan_admin_create_comments:
+    path:     /admin/createcomment
+    defaults: { _controller: CAFTANAdminBundle:Comment:create }
+    requirements:
+        id: \d+
+        
+       
+caftan_admin_update_comments:
+    path:     /admin/updatecomment/{id}
+    defaults:  
+        _controller: CAFTANAdminBundle:Comment:update 
+        id: 1
+    requirements:
+        id: \d+
+        
+        
+        
+caftan_admin_delete_comments:
+    path:     /admin/deletecomment/{id}
+    defaults:  
+        _controller: CAFTANAdminBundle:Comment:delete 
+        id: 1
+    requirements:
+        id: \d+

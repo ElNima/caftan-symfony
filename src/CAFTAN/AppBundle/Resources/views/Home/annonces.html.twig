@@ -1,0 +1,52 @@
+ 
+{% extends "CAFTANAppBundle::base.html.twig" %}
+{% block section %}
+    
+        <div class="corp container">
+            <div class="annonceContent ">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="">Annonces:</h1>
+                </div> <!-- /.col-md-12 -->
+            </div> <!-- /.row -->
+            
+            <div class="row advert">
+                {% for advert in adverts %}
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-item">
+                        <div class="item-thumb">
+                           
+                            <div class="overlay">
+                                <div class="overlay-inner">
+                                    <a href="{{path('caftan_app_annoncepage', {'id': advert.id})}}" class="view-detail">Plus de détails</a>
+                                </div>
+                            </div> <!-- /.overlay -->
+                            <img style="height:255px !important;" src="{{asset(advert.image.webPath)}}" alt="{{advert.image.alt}}">
+                        </div> <!-- /.item-thumb -->
+                        <h3>{{advert.annonceur.adress.cp}} {{advert.annonceur.adress.localite}} {{advert.annonceur.adress.pays}}</h3>
+                        <span>Price:  <em class="price">{{advert.prix}}€</em></span>
+                    </div> <!-- /.product-item -->
+                </div> <!-- /.col-md-3 -->
+              {% endfor %}  
+               
+            </div>
+            <ul class="pagination">
+
+                    {# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
+
+                    {% for p in range(1, nbPages) %}
+
+                      <li{% if p == page %} class="active"{% endif %}>
+
+                        <a href="{{ path('caftan_app_annoncespage', {'page': p}) }}">{{ p }}</a>
+
+                      </li>
+
+                    {% endfor %}
+
+                  </ul>
+            </div> 
+        </div> <!-- /.container -->
+    </div> <!-- /#products -->
+    
+{% endblock %}

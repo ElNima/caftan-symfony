@@ -1,0 +1,204 @@
+caftan_app_homepage:
+    path:    index.{format}/
+    defaults: 
+        _controller: CAFTANAppBundle:Home:index 
+        format:      html
+    requirements:
+        format: html|xml
+            
+        
+caftan_app_annoncespage:
+    path:    annonces.{format}/{page}
+    defaults: 
+        _controller: CAFTANAppBundle:Annonces:index
+        page:  1
+        format:      html
+    requirements:
+        format: html|xml  
+        page:  \d+
+   
+
+#caftan_app_publierpagettt:
+#    path:    publier.{format}/
+#    defaults: 
+#        _controller: CAFTANAppBundle:Publier:index
+#        format:      html
+#    requirements:
+#        format: html|xml 
+
+caftan_app_contactpage:
+    path:    contact.{format}/
+    defaults: 
+        _controller: CAFTANAppBundle:Contact:index
+        format:      html
+    requirements:
+        format: html|xml
+                
+                
+caftan_app_annoncepage:
+    path:    annonce.{format}/{id}
+    defaults: 
+        _controller:    CAFTANAppBundle:Annonce:index
+        format:    html
+        id:    1    
+    requirements:
+        format:    html|xml
+        id:    \d+
+                        
+#caftan_app_registrationpage:
+#    path:    register/
+#    defaults: 
+#        _controller: CAFTANAppBundle:Registration:index       
+#    
+  
+caftan_app_publierpage:
+    path:   /
+    defaults:   {_controller: CAFTANAppBundle:Publier:index}
+    
+caftan_app_profilpage:
+    path:    profil.{format}/{id}
+    defaults: 
+        _controller: CAFTANAppBundle:Profil:index
+        format:      html
+        id:    1
+    requirements:
+        format: html|xml
+        id: \d+
+        
+caftan_app_imgprofil:
+    path:    imgprofil.{format}/{id}
+    defaults: 
+        _controller: CAFTANAppBundle:Imgprofil:index
+        format:      html
+        id:    1
+    requirements:
+        format: html|xml
+        id: \d+
+        
+caftan_app_imgUpprofil:
+    path:    imgupprofil.{format}/{id}
+    defaults: 
+        _controller: CAFTANAppBundle:Imgprofil:update
+        format:      html
+        id:    1
+    requirements:
+        format: html|xml
+        id: \d+
+        
+        
+caftan_app_datapprofil:
+    path:    dataprofil.{format}/{id}
+    defaults: 
+        _controller: CAFTANAppBundle:Dataprofil:index
+        format:      html
+        id:    1
+    requirements:
+        format: html|xml
+        id: \d+
+        
+        
+caftan_app_compteprofil:
+    path:    compteprofil.{format}/{id}
+    defaults: 
+        _controller: CAFTANAppBundle:Compteprofil:index
+        format:      html
+        id:    1
+    requirements:
+        format: html|xml
+        id: \d+       
+        
+        
+caftan_app_profil_updatepage:
+    path:    editprofil.{format}/{id}
+    defaults: 
+        _controller: CAFTANAppBundle:Editprofil:index
+        format:      html
+        id:    1
+    requirements:
+        format: html|xml
+        id: \d+
+                                        
+caftan_app_mesannoncespage:
+    path:    mesannonces.{format}/{id}/
+    defaults: 
+        _controller: CAFTANAppBundle:MesAnnonces:index
+        format:      html
+        id: 1
+    requirements:
+        format: html|xml
+        id: \d+
+        
+caftan_app_modifiermonannoncepage:
+    path:    modifierannonce.{format}/{id}
+    defaults: 
+        _controller: CAFTANAppBundle:Modifierannonce:index
+        format:      html
+        id: 1
+    requirements:
+        format: html|xml
+        id: \d+
+        
+caftan_app_deletemonannoncepage:
+    path:    deleteannonce.{format}/{id}
+    defaults: 
+        _controller: CAFTANAppBundle:Modifierannonce:delete
+        format:      html
+        id: 1
+    requirements:
+        format: html|xml
+        id: \d+
+        
+caftan_app_deletemycomment:
+    path:    deletemycomment.{format}/{id}
+    defaults: 
+        _controller: CAFTANAppBundle:Deletemycomment:delete
+        format:      html
+        id: 1
+    requirements:
+        format: html|xml
+        id: \d+
+    
+caftan_app_mesmessagespage:
+    path:    mesmessages.{format}/{id}
+    defaults: 
+        _controller: CAFTANAppBundle:Mesmessages:index
+        format:      html
+        id: 1
+    requirements:
+        format: html|xml
+        id: \d+
+       
+caftan_app_createurpage:
+    path:    createur.{format}/{id}
+    defaults: 
+        _controller: CAFTANAppBundle:Createur:index
+        format:      html
+        id: 1
+    requirements:
+        format: html|xml
+        
+caftan_delete_messages:
+    path:    deletemessage.{format}/{id}
+    defaults: 
+        _controller: CAFTANAppBundle:Mesmessages:delete
+        format:      html
+        id: 1
+    requirements:
+        format: html|xml
+        
+caftan_app_vendeurpage:
+    path:    vendeur.{format}/{id}
+    defaults: 
+        _controller: CAFTANAppBundle:Vendeur:index
+        format:      html
+        id: 1
+    requirements:
+        format: html|xml
+        
+caftan_app_recherchepage:
+    path:    recherche.{format}/
+    defaults: 
+        _controller: CAFTANAppBundle:Recherche:index
+        format:      html
+    requirements:
+        format: html|xml

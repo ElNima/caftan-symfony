@@ -1,0 +1,144 @@
+
+{% extends "CAFTANAppBundle::base.html.twig" %}
+{% block header %}
+    
+     <div class="site-slider">
+            <div class="positionAbsolute">
+                    <div class="search" >
+                       <!-- <p>Retrouver le caftan qui vous convient en dernière minute près de chez vous: </p>-->
+                        <p>Retrouver le Caftan, pour votre évenement surprise, qui convient à votre goût et votre budget près de chez vous.</p>
+                       <!-- <input  placeholder="votre code postal"  id="adresse" class="marginR taille borderChamp" type="text" name="codePostal" >
+                            <SELECT class="taille borderChamp" name="prix" size="1">
+                                                                    <OPTION>50-100
+                                                                    <OPTION>100-300
+                                                                    <OPTION>300-500
+                                                                    <OPTION>500 ou plus
+                            </SELECT><input onclick="geolocalise()"  class="send borderChamp" type="submit" name="search" value="search"><br>
+                            <label class="positionRadio">neuf:</label><input class="marginL positionRadio borderChamp" type="checkbox" name="neuf" >
+                        -->
+                         <div class="well">
+
+                              {{ form(form) }}
+
+                          </div>
+                    </div>
+            </div>
+        <ul class="bxslider">
+            
+            <li>
+                <img src="../../../web/images/slider/slide1.PNG"  alt="slider image 1">
+                <div class="container">
+                    <div class="row">
+                    <!--<div class="col-md-12 text-right">
+                            <div class="slider-caption">
+                                <h2>Your HTML5 Website</h2>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+            </li>
+            
+            <li>
+                <img src="../../../web/images/slider/slide2.jpg" alt="slider image 2">
+                <div class="container caption-wrapper">
+                    <div class="slider-caption">
+                       
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img src="../../../web/images/slider/slide3.jpg" alt="slider image 3">
+                <div class="container caption-wrapper">
+                    
+                            <div class="slider-caption">
+                               
+                            </div>
+                   
+                </div>
+            </li>
+            
+        
+        </ul> <!-- /.bxslider -->
+        <div class="bx-thumbnail-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="bx-pager">
+                            <a data-slide-index="0" href=""><img src="../../../web/images/slider/thumb1.png" alt="image 1" /></a>
+                            <a data-slide-index="1" href=""><img src="../../../web/images/slider/thumb2.jpg" alt="image 2" /></a>
+                            <a data-slide-index="2" href=""><img src="../../../web/images/slider/thumb3.jpg" alt="image 3" /></a>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- /.site-slider -->
+{% endblock %}
+{% block section %}       
+    <div class="container">
+           <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="">Les dernières annonces:</h1>
+                </div> <!-- /.col-md-12 -->
+            </div> <!-- /.row -->
+            <div class="row advert">
+                {%for advert in adverts %}
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-item">
+                        <div class="item-thumb">
+                           
+                            <div class="overlay">
+                                <div class="overlay-inner">
+                                    <a href="{{path('caftan_app_annoncepage', {'id': advert.id})}}" class="view-detail">Plus de détails</a>
+                                </div>
+                            </div> <!-- /.overlay -->
+                            {% if advert.image == NULL %}
+                             <img src="../../../web/images/nosCreateurs/noProfil.jpg" alt="image non ajoutée">
+                            {% else %}
+                                <img style="height:255px !important;width:255px !important;" src="{{asset(advert.image.webPath)}}" alt="{{advert.image.alt}}">
+                           
+                           ´{% endif %}
+                        </div> <!-- /.item-thumb -->
+                        <h3>{{advert.annonceur.adress.cp}} {{advert.annonceur.adress.localite}} {{advert.annonceur.adress.pays}}</h3>
+                        <span>Prix:  <em class="price">{{advert.prix}}€</em></span>
+                    </div> <!-- /.product-item -->
+                </div> <!-- /.col-md-3 -->
+                {% endfor %}
+                <div class="col-md-12 col-sm-9">
+                    <a class="plus" href="{{path('caftan_app_annoncespage', {page:1})}}"><p>Voir plus</p></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="">Nos créateurs:</h1>
+                </div> <!-- /.col-md-12 -->
+            </div> <!-- /.row -->
+            <div class="row  createur">
+               {%for createur in createurs %}
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-item">
+                        <div class="item-thumb">
+                           <div style="height:200px !important;width:200px !important;" class="overlay">
+                                <div class="overlay-inner">
+                                    <a href="{{path('caftan_app_createurpage', {'id': createur.id})}}" class="view-detail">{{createur.prenom}} {{createur.nom}}</a>
+                                </div>
+                            </div> <!-- /.overlay -->
+                            {% if createur.image == NULL %}
+                             <img style="height:200px !important;width:200px !important;" src="../../../web/images/nosCreateurs/noProfil.jpg" alt="image non ajoutée">
+                            {% else %}
+                                <img style="height:200px !important;width:200px !important;" src="{{asset(createur.image.webPath)}}" alt="{{createur.image.alt}}">
+                           
+                           ´{% endif %}
+                            
+                        </div> <!-- /.item-thumb -->
+                        
+                    </div> <!-- /.product-item -->
+                </div> <!-- /.col-md-3 -->
+                {% endfor %}
+            </div>
+    </div>
+{% endblock %}
+
+
+ 

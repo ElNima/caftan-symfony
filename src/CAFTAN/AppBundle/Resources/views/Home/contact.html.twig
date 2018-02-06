@@ -1,0 +1,31 @@
+ 
+{% extends "CAFTANAppBundle::base.html.twig" %}
+{% block section %}
+<div id="contact" class="content-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="section-title">Contact</h1>
+                </div> <!-- /.col-md-12 -->
+            </div> <!-- /.row -->
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8 text-center bigger-text">
+                    <p>Pour vos questions et vos suggestions veuillez nous contacter en remplissant le formulaire suivant:</p>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div id="map">
+                    </div>
+                </div> <!-- /.col-md-6 -->
+                <div class="col-md-6 col-sm-6">
+
+                    <div class="row contact-form">
+                        {{ form(form) }}
+
+                    </div> <!-- /.contact-form -->
+
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /#products -->
+    
+{% endblock %}

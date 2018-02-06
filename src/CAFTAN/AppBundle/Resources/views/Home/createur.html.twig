@@ -1,0 +1,75 @@
+ 
+{% extends "CAFTANAppBundle::base.html.twig" %}
+{% block section %}
+<div class="corp container">
+        <div class="annonceContent">
+          
+          <h1>{{createur.prenom}} {{createur.nom}}:</h1>
+            <div class="annonce">
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-item">
+                        <div class="item-thumb">
+                            
+                            {% if createur.image != null %}
+                            <img class="imgP" src="{{asset(createur.image.webPath)}}" alt="{{createur.image.alt}}">
+                            {% else %}
+                             <img class="imgP" src="../../../web/images/nosCreateurs/noProfil.jpg" alt="image non ajoutée"> 
+                            {% endif %}
+                            <span style="margin-left:80px;color:#e721d7; font-size: 16px;">{{createur.adress.localite}}</span>
+                        </div> <!-- /.item-thumb -->
+                        
+                    
+                    </div> <!-- /.product-item -->
+                    
+                        
+                </div> <!-- /.col-md-3 -->
+                <div class=" col-sm-2"><p></p></div>
+                <div class=" col-sm-6">
+                           
+                                <h4>Contacter {{createur.prenom}}:</h4>
+                              
+                               {{ form(formm) }}
+                </div>
+                <div style="margin-bottom:60px;" class="col-sm-12">
+                    
+                    {%if createur.parcour != ''%}
+                    <h3>Decouvrir mon parcour professionnel:</h3>
+                    <div class="createurDesc">
+                        <p>{{createur.parcour}}</p>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-sm-12">
+                    
+                   
+                    
+                    {% for comment in comments %}
+                        <div >
+                        {% if comment.commenter.image != null %}
+                            <img  class="imgcommenter" src="{{asset(comment.commenter.image.webPath)}}" />
+                            {% else %}
+                             <img class="imgcommenter" src="../../../web/images/nosCreateurs/noProfil.jpg" alt="image non ajoutée"> 
+                            {% endif %}
+                        {% if comment.commenter == app.user %}
+                       <span class="commenter">{{comment.commenter.username}} </span>le <span >{{comment.date|date('d/m/y')}}</span><a href="{{path('caftan_app_deletemycomment', {'id': app.user.getId()})}}"><img style="width:40px; margin-left:250px; margin-bottom:-5px;" src="../../../web/images/deleteicon.png" /></a>
+                        {% else %}
+                        <span class="commenter">{{comment.commenter.username}} </span>le <span >{{comment.date|date('d/m/y')}}</span>
+                        {% endif %}
+                        <p class="pos" style='border:1px solid ;padding:30px;width: 400px;'>{{comment.comment}}</p>
+                        
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class=" col-sm-12 comment">
+                           
+                                <h4>S'il vous plaît laisser un commentaire!</h4>
+                                {{ form(form) }}
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+{% endblock %}
+

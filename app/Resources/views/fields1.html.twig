@@ -1,0 +1,15 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{%- block form_widget_simple -%}
+{%- set type = type|default('text') -%}
+{%if type=="file"%}
+    <input type="file"  {{ block('widget_attributes') }} ></input>
+    
+    <div id="thumbnail"><img src="{% if attr['data-img'] is defined %} {{asset(attr['data-img']) }} {% endif %}" /></div>
+    
+{%else%}
+    {{parent()}}
+{%endif%}
+
+{%- endblock form_widget_simple -%}
+

@@ -1,0 +1,208 @@
+<?php
+
+namespace CAFTAN\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Message
+ *
+ * @ORM\Table(name="message")
+ * @ORM\Entity(repositoryClass="CAFTAN\AppBundle\Repository\MessageRepository")
+ */
+class Message
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+   
+ 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="text")
+     * @Assert\NotBlank()
+     */
+    private $content;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="subject", type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $subject;
+    
+   
+    
+
+        function getSubject() {
+        return $this->subject;
+    }
+
+    function setSubject($subject) {
+        $this->subject = $subject;
+    }
+
+        
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="text")
+     */
+    private $email;
+    function getEmail() {
+        return $this->email;
+    }
+
+    function setEmail($email) {
+        $this->email = $email;
+    }
+
+        
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     * @Assert\DateTime()
+     */
+    private $date;
+   
+     /**
+     * @ORM\ManyToOne(targetEntity="CAFTAN\AppBundle\Entity\User", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
+     */
+    
+    private $receiver;
+    
+    
+    
+    
+    function __construct() {
+        $this->date = new\DateTime;
+    }
+
+   
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     *
+     * @return Message
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Message
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+    
+    
+    
+    /**
+     * Set receiver
+     *
+     * @param \CAFTAN\AppBundle\Entity\User $receiver
+     *
+     * @return Message
+     */
+    public function setReceiver(\CAFTAN\AppBundle\Entity\User $receiver)
+    {
+        $this->receiver = $receiver;
+
+        return $this;
+    }
+
+    /**
+     * Get receiver
+     *
+     * @return \CAFTAN\AppBundle\Entity\User
+     */
+    public function getReceiver()
+    {
+        return $this->receiver;
+    }
+    
+
+  
+
+    
+
+    /**
+     * Set sender.
+     *
+     * @param \CAFTAN\AppBundle\Entity\User $sender
+     *
+     * @return Message
+     */
+    public function setSender(\CAFTAN\AppBundle\Entity\User $sender)
+    {
+        $this->sender = $sender;
+
+        return $this;
+    }
+
+    /**
+     * Get sender.
+     *
+     * @return \CAFTAN\AppBundle\Entity\User
+     */
+    public function getSender()
+    {
+        return $this->sender;
+    }
+}

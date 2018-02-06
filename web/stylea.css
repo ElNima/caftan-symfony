@@ -1,0 +1,467 @@
+@font-face {
+    font-family: 'happy_monkeyregular';
+    src: url('fonts/happymonkey-regular-webfont.eot');
+    src: url('fonts/happymonkey-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/happymonkey-regular-webfont.woff2') format('woff2'),
+         url('fonts/happymonkey-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html{
+	background-color:#6E6E6E;
+	
+}
+body{
+	margin:auto;
+	width:1300px;
+	background-color:#fff;
+}
+
+
+.pagePadding{
+	padding:80px;/*padding pour mes 5 pages*/
+	
+}
+.homesection{
+	width:1200px;/*LA LARGEUR DE LA SECTION DANS LA PAGE HOME*/
+}
+.marginLeft{
+	margin-left:40px;
+}
+.marginDivChild{ /*les marges de la div de mes coordonnées en page contact*/
+	margin:100px auto auto 145px;
+}
+
+
+.dropcap{
+float:left;
+font-size:44px;
+line-height:1;/* la hauteur de la ligne contenant la letrine	*/
+margin:-4px 3px 0 0;
+}
+.pdf{
+ display:block;
+   border-radius:5px;
+ position:absolute;
+ margin-left:860px;
+ margin-top:-60px;
+ width:100px;
+ line-height:50px; /*hauteur du bouton*/
+ background-color:#AB2FA5;
+ color:#fff;
+ text-decoration:none;
+ text-align:center;
+ }
+ 
+
+ .line{
+	 border-top:2px solid #AB2FA5;
+	 border-bottom:2px solid #AB2FA5;
+	 padding-left:30px;
+	 
+ }
+
+.adress{ /*la div de mon adresse email en header*/
+	background-color:#333;
+	padding-top:1px;
+	padding-bottom:8px;
+	height:43px;
+	width:1300px;
+
+}
+ /*pour centrer mon cv de portfolio*/
+ .center{
+	 margin:20px auto 50px 0px;
+	 
+	 box-shadow:10px 10px 5px #888888;
+	 padding-left:40px;
+	 background-color:#333;
+ }
+
+/*paragraph*/
+p, dd, dt, dl{
+	font-family:'happy_monkeyregular',Arial,sans-serif;
+	color:#5F5D5D;
+}
+dd{
+	font-size:14px;
+	position:relative;
+	left:200px;
+	bottom:18px;
+}
+.size{
+	font-size:14px;
+}
+dt{
+	font-weight:bold;
+	font-size:16px;
+	
+}
+.adress p a{
+	color:#fff;
+	padding-left:20px;
+	
+	text-decoration:none;
+
+}
+
+.aboutme p,.aboutme h2, dd, dt, dl{
+	color:#fff;
+	
+}
+.quote{/*mes citations*/
+	color:#AEA7A7!important;
+	margin-top:50px;
+	margin-bottom:-10px;
+	
+
+}
+
+.container p{
+	font-size:12px;
+}
+.quote p{/*les paragraphe de mes citations*/
+	color:#AEA7A7!important;
+	font-size:15px;
+}
+.centerContent p{
+	padding-right:0px!important;/*aligner la description de mes réalisations*/
+}
+.marginleft50{
+	margin-left:50px;
+}
+/*les titres*/
+h1{
+	color:#AB2FA5;
+	font-size:36px;
+	font-family: 'Merriweather Sans', sans-serif;
+}
+h1{
+	color:#333;
+	font-size:32px;
+	font-family: 'Merriweather Sans', sans-serif;
+}
+.centerContent{
+	width:200px;
+}	
+.centerContent h3{
+	
+	margin-left:30px;
+	text-align:center;
+	vertical-align:midlle!important;
+	
+}
+h3{
+
+}
+.marginh3{
+	margin-left:40px;
+}
+.margin50{
+	margin-left:80px;
+}
+
+/*images*/
+.marginNav{
+	margin-top:-5px;
+	
+}
+.monAvatar{/*l'avatar de la page home*/
+	margin:auto 20px;
+}
+.margin-left{
+	margin-left:50px;/*POUR CENTRER LES IMAGES DU CENTRE DE LA PAGE PORTFOLIO*/
+}
+.marginleft90{
+	margin-left:90px;/*les dernières images de la page portfolio*/
+	
+}
+.marginRight{
+	margin-right:105px!important;/*les images de la page portfolio*/
+}
+.margintop{
+	margin-top:36px;/*pour mon avatar en page home*/
+}
+.margintop img{
+	border:6px solid #000;
+}
+ .container img{
+	   border-radius:10%;/*définir des coins arrondis pour la bordure des images de ma page portfolio  */
+	   border:2px solid #AB2FA5;
+	    
+ }
+ .nomargintop{/*approcher les étoiles aux logos*/
+	 position:relative;
+	 bottom:50px!important;
+ }
+ .marginLogo img{ /*margin entre les icones en page contact*/
+margin-right:40px;
+
+	
+	
+}
+.marginLogo{
+    margin-right:45px!important;
+}
+.border{
+}
+
+/*navigation*/
+.current{
+	background-color:#E63F6F;
+}
+.backgroundnav{
+	background-color:#AB2FA5;
+
+	height:50px;
+}
+.aboutme{
+    margin-top: -80px!important;
+   
+}
+nav{
+	background-color:#AB2FA5;
+}
+nav ul {
+ padding:0;
+ margin:0px 602px 0 80px;
+ list-style-type:none;
+ }
+nav ul li {
+ float:left; 
+ border-left:1px solid #fff;
+ font-family: 'Merriweather Sans', sans-serif;
+
+ }
+ .borderRight{
+  border-right:1px solid #fff;
+ }
+nav ul li a {
+ display:block;
+ float:left;   
+ width:105px;
+ line-height:50px; /*hauteur du bouton dans ma nav*/
+ background-color:#AB2FA5;
+ color:#fff;
+ text-decoration:none;
+ text-align:center;
+  
+ }
+nav ul li a:hover {
+ background-color:#E63F6F;
+
+ } 
+
+ /*formulaire*/
+ .floatLeft{
+	 float:left;
+	 margin-right:50px;
+	 
+ }
+ form ul{
+	  list-style-type:none;
+ }
+
+form ul li .submit{
+  font-family:'happy_monkeyregular',Arial,sans-serif;
+  font-size:16px;
+ width:80px;
+ line-height:30px; /*hauteur du bouton dans mon formulaire*/
+ background-color:#AB2FA5;
+ color:#fff;
+ text-decoration:none;
+ text-align:center;
+  
+ }
+  form ul li{
+    font-family:'happy_monkeyregular',Arial,sans-serif; 
+	font-size:18px;
+  }
+   .border{
+	 border:2px solid #AB2FA5;
+	 margin-bottom:40px;
+ }
+ .textarea{
+	 margin-top:20px;
+	 margin-bottom:20px;
+ }
+ .margin32{
+	 margin-right:32px;
+ }
+ .margin80{
+	 margin-left:80px;
+ }
+ 
+ /*colones*/
+.col{
+	float:left!important;
+	margin-right:20px;
+}
+
+
+.last{
+	margin-right: 0 !important;
+}
+
+.col-1-12{
+	width:90px;
+}
+
+.col-2-12{
+	width:200px;
+}
+
+.col-3-12{
+	width:310px;
+}
+
+.col-4-12{
+	width:420px;
+}
+
+.col-5-12{
+	width:530px;
+}
+
+.col-6-12{
+	width:640px;
+}
+
+.col-7-12{
+	width:750px;
+}
+
+.col-8-12{
+	width:860px;
+}
+
+.col-9-12{
+	width:970px;
+}
+
+.clear{
+	
+	clear:both;
+}
+.separator{
+	margin-bottom:50px;
+}
+
+/**/
+i{
+     font-family: 'FontAwesome';
+     
+     
+    
+}
+.widthicons{
+    width:90px;
+    float:left!important;
+}
+.icons{
+    width:90px;
+}
+/*footer*/
+ footer{
+	background-color:#040404;
+	padding-top:40px;
+	height:110px;
+	width:1182px;
+	padding-left:60px;
+	padding-right:60px;
+}
+
+.navFooter a{
+	display:block;
+	text-decoration:none;
+	margin-left:20px;
+	color:#FFF;
+	font-family: 'Merriweather Sans', sans-serif;
+	}
+.navFooter a:hover{
+	color:#E63F6F;
+}
+.copyright{
+		color:#fff;
+		float:right;
+		margin-top:25px;
+		font-size:13px;
+		line-height:16px;
+		margin-right:-85px;
+		font-family: 'Merriweather Sans', sans-serif;
+		
+}
+.copyright a{
+	color:#AB2FA5;
+	text-decoration:none;
+}
+.copyright a:hover{
+	color:#E63F6F;
+}
+.floatIconFb{
+	float:right;
+	margin-left:60px;
+}
+/****************animation*******************/
+.container {
+  position: relative;/*la position de la div qui contient */
+ 
+}
+
+container a .img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.centerContent h3{/*les titres de mes réalisations*/
+position: absolute;
+bottom:40px;
+right:40px;
+ background-color:#E63F6F; /*une transparence au background affiché au survole de la souris*/
+overflow: hidden;/*masquer les titres des réalisations*/
+width: 73%;
+height: 0;
+transition: .5s ease;/*la durée de la transition de la div qui contient le titre de réaisations*/
+border-radius: 10%;
+}
+
+.container:hover .centerContent h3{
+  height: 46.5%;
+  	padding-top:50px;/*faire descendre un peu le titre des realisations */
+	  
+}
+.container:hover .heightsmaller h3{
+	height: 38%;
+}
+
+.centerContent h3 {
+ 
+  color: white;
+ 
+  font-size:13px;
+  position: absolute;
+  overflow: hidden;
+  top: 27%;
+  left:26.5%;
+
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  font-family: 'Merriweather Sans', sans-serif;
+}
+.heightsmaller h3{
+	top:23.5%;
+}
+.marginh3 h3{/*pour la 2ème et la 4ème réalisation */
+	position: absolute;
+  
+  left:42.8%;
+}
+.margin50 h3{/*pour la 3ème et la 6ème réalisation */
+	position: absolute;
+   
+  left:55.7%;
+}
+/******************************/

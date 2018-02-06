@@ -1,0 +1,39 @@
+ 
+{% extends "CAFTANAppBundle::base.html.twig" %}
+{% block section %}
+<div class="corp container">
+        <div class="annonceContent">
+            <div class="row">
+                <div class="col-md-12 ">
+                    <h1 class="">Les annonces correspondantes à votre recherche:</h1>
+                </div> <!-- /.col-md-12 -->
+            </div> <!-- /.row -->
+            
+            {% if searchResults != NULL %}
+                <div class="row">
+                {% for searchResult in searchResults %}
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-item">
+                        <div class="item-thumb">
+                           
+                            <div class="overlay">
+                                <div class="overlay-inner">
+                                    <a href="{{path('caftan_app_annoncepage', {'id': searchResult.id})}}" class="view-detail">Plus de détails</a>
+                                </div>
+                            </div> <!-- /.overlay -->
+                            <img style="border:1px solid #333;" src="{{asset(searchResult.image.webPath)}}" alt="{{searchResult.image.alt}}">
+                        </div> <!-- /.item-thumb -->
+                        <h3>{{searchResult.annonceur.adress.cp}} {{searchResult.annonceur.adress.localite}} {{searchResult.annonceur.adress.pays}}</h3>
+                        <span>Price:  <em class="price">{{searchResult.prix}}€</em></span>
+                    </div> <!-- /.product-item -->
+                </div> <!-- /.col-md-3 -->
+              {% endfor %} 
+                </div>
+            {% else %}
+                <p>aucune resultats correspondante à votre recherche </p>
+            {% endif %}
+            
+        </div>
+    </div>
+    
+{% endblock %}

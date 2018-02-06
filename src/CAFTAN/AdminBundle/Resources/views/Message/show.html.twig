@@ -1,0 +1,42 @@
+{% extends "CAFTANAdminBundle::layout.html.twig" %}
+{% block section %}
+    <h1>la table Messages </h1>
+   
+    <table class="table table-bordered"> 
+
+        <thead> 
+            <tr> 
+                <td>id</td>
+                <td>récepteur</td> 
+                <td>Subject</td> 
+                <td>contenu</td> 
+                <td>date</td> 
+                
+                
+
+            </tr> 
+        </thead> 
+        <tbody> 
+
+
+            {% for message in messages %}
+                <tr>
+                    <td>{{message.id}}</td>
+                    <td>{{message.receiver.nom}}</td>
+                    <td>{{message.subject}}</td>
+                    
+                    <td>{{message.content}}</td>
+                    <td>{{message.date|date('d/m/Y')}}</td>
+                    
+                    
+                    <td class="btn btn-success"><a href="{{path('caftan_admin_delete_messages', {'id': message.id})}}">delete</a></td>
+                    
+
+                </tr>
+
+            {% endfor %}
+
+        </tbody> 
+    </table>
+
+{% endblock %}

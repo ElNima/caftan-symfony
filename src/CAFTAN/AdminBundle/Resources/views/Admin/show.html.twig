@@ -1,0 +1,55 @@
+{% extends "CAFTANAdminBundle::layout.html.twig" %}
+{% block section %}
+    <h1>la table des annonces: </h1>
+    <ul>
+         <li class="btn btn-success"><a class="btn btn-success" href="{{path('caftan_admin_create_annonces')}}">create</a></li>
+    </ul>
+    <table class="table table-bordered"> 
+
+        <thead> 
+            <tr> 
+                <td>id</td>
+                <td>title</td>
+                <td>Prix</td> 
+                <td>CreatedAt</td> 
+                <td>neuf</td> 
+                
+                <td>Creation</td> 
+                <td>description</td> 
+                <td>Signaled</td> 
+                <td>Published</td> 
+                <td>Image</td> 
+                <td>Annonceur</td> 
+                <td>localite</td> 
+
+            </tr> 
+        </thead> 
+        <tbody> 
+
+
+            {% for annonce in annonces %}
+                <tr>
+                    <td>{{annonce.id}}</td>
+                    <td>{{annonce.title}}</td> 
+                    <td>{{annonce.prix}}</td>
+                    <td>{{annonce.createdAt.date|date('d/m/Y')}}</td> 
+                    
+                    <td>{{annonce.neuf}}</td>
+                    <td>{{annonce.creation}}</td> 
+                    <td>{{annonce.descr}}</td> 
+                    <td>{{annonce.signaled}}</td> 
+                    <td>{{annonce.published}}</td> 
+                    <td>{{asset(annonce.image.webPath)}}</td> 
+                    <td>{{annonce.annonceur.nom}}</td>
+                    <td>{{annonce.annonceur.adress.cp}} {{annonce.annonceur.adress.localite}}</td> 
+                    <td class="btn btn-success"><a class="btn btn-success" href="{{path('caftan_admin_delete_annonces', {'id':annonce.id})}}">delete</a></td>
+                    <td class="btn btn-success"><a class="btn btn-success" href="{{path('caftan_admin_update_annonces', {'id':annonce.id})}}">update</a></td>
+
+                </tr>
+
+            {% endfor %}
+
+        </tbody> 
+    </table>
+
+{% endblock %}

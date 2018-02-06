@@ -1,0 +1,59 @@
+{% extends "CAFTANAppBundle::base.html.twig" %}
+{% block section %}
+<div class="corp container">
+        <div class="annonceContent">
+           
+            <h1>{{user.prenom}} {{user.nom}}:</h1>
+            
+            <div class="annonce">
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-item">
+                        <div class="item-thumb"> 
+                            {% if user.image != '' %}
+                                <img src="{{asset(user.image.webPath)}}" alt="{{user.image.alt}}">
+                             {% else %}
+                                 <img src="../../../images/nosCreateurs/noProfil.jpg" alt="image non ajouté">
+                             {% endif %}
+                        </div> <!-- /.item-thumb -->
+                    </div> <!-- /.product-item -->
+                    
+                        
+                </div> <!-- /.col-md-3 -->
+                <div class=" col-sm-2 col-sm-1"><p></p></div>
+                <div class="col-md-3 col-sm-6">
+                                <h4>Contacter le vendeur:</h4>
+                                {{form(formm)}}
+                </div>
+                
+                <div class="row">
+                <div class="col-md-12 ">
+                    <h1 class="">Ses annonces:</h1>
+                </div> <!-- /.col-md-12 -->
+            </div> <!-- /.row -->
+            <div class="row">
+               
+                    {% for advert in annonces %}
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-item">
+                            <div class="item-thumb">
+
+                                <div class="overlay">
+                                    <div class="overlay-inner">
+                                        <a href="{{path('caftan_app_annoncepage', {'id':advert.id})}}" class="view-detail">Plus de détails</a>
+                                    </div>
+                                </div> <!-- /.overlay -->
+                                <img src="{{asset(advert.image.webPath)}}" alt="{{advert.image.alt}}">
+                            </div> <!-- /.item-thumb -->
+                            <h3>{{advert.annonceur.adress.localite}}</h3>
+                            <span>Price:  <em class="price">{{advert.prix}}€</em></span>
+                        </div> <!-- /.product-item -->
+                    </div> <!-- /.col-md-3 -->
+                    {% endfor %}
+              
+            </div>
+            </div>
+            
+        </div>
+    </div>
+    
+{% endblock %}

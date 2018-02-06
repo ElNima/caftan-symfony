@@ -1,0 +1,67 @@
+ 
+{% extends "CAFTANAppBundle::base.html.twig" %}
+{% block section %}
+    <div class=" container profilPage">
+        <div class="row annonceContent">
+       
+                <div class="col-md-12" id="monProfil" >
+                  <div class="titreProfile" >
+                      {% if user.image.webPath is defined %}
+                           <div width="250px">
+                           <img src="{{ asset(user.image.webPath) }}" alt="{{ user.image.alt }}">
+                          </div>
+                      <a href="{{path('caftan_app_imgprofil', {id:app.user.id})}}">Modifier</a>
+                      {% else %}
+                         <div>
+                          <img src="../../../web/images/nosCreateurs/noProfil.jpg" alt="image non ajoutée">             
+                         </div>
+                          <a href="{{path('caftan_app_imgprofil', {id: app.user.id})}}">Ajouter une image</a>
+                      {% endif %}
+                      
+                      
+                  </div>
+                  <div class="donnesPersonnelles">
+
+                      <h3>Données personnelles:</h3>
+                       <dl>
+                          <dt>Nom:</dt>
+                          <dd>{{user.nom}}</dd>
+                          <dt>Préom:</dt>
+                          <dd>{{user.prenom}}</dd>
+                          <dt>Numéro de téléphone:</dt>
+                          <dd>{{user.tel}}</dd>
+                         {% if user.adress != null %}
+                          <dt>Pays:</dt>
+                          
+                          <dd>{{user.adress.pays}}</dd>
+                          <dt>Localite:</dt>
+                          <dd>{{user.adress.localite}}</dd>
+                          <dt>Code postale:</dt>
+                          <dd>{{user.adress.cp}}</dd>
+                          {% else %}
+                          <dt>Pays:</dt>
+                          
+                          <dd></dd>
+                          <dt>Localite:</dt>
+                          <dd></dd>
+                          <dt>Code postale:</dt>
+                          <dd></dd>
+                          {% endif %}
+
+                       </dl>
+                        <a href="{{path('caftan_app_datapprofil', {id:app.user.id})}}">Modifier</a>
+                       <h3>Données du compte:</h3>
+                       <dl>
+                           <dt>username:</dt>
+                          <dd>{{user.username}}</dd>
+                          <dt>Email:</dt>
+                          <dd>{{user.email}}</dd>
+                       </dl> 
+                        <a href="{{path('caftan_app_compteprofil', {id:app.user.id})}}">Modifier</a>
+                  </div>
+
+              </div>
+            </div>
+        </div>
+    
+{% endblock %}

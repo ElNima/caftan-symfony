@@ -1,0 +1,38 @@
+{% extends "CAFTANAdminBundle::layout.html.twig" %}
+{% block section %}
+    <h1>la table des adresses: </h1>
+    <ul>
+        <li class="btn btn-success"><a href="{{path('caftan_admin_create_adresses')}}">create</a></li>
+    </ul>
+    <table class="table table-bordered"> 
+
+        <thead> 
+            <tr> 
+                <td>id</td>
+                <td>Cp</td> 
+                <td>Localité</td> 
+                <td>Pays</td> 
+                
+
+            </tr> 
+        </thead> 
+        <tbody> 
+
+
+            {% for adresse in adresses %}
+                <tr>
+                    <td>{{adresse.id}}</td>
+                    <td>{{adresse.cp}}</td>
+                    <td>{{adresse.localite}}</td> 
+                    <td>{{adresse.pays}}</td> 
+                    <td class="btn btn-success"><a href="{{path('caftan_admin_delete_adresses', { 'id': adresse.id })}}">delete</a></td>
+                    <td class="btn btn-success"><a href="{{path('caftan_admin_update_adresses', { 'id': adresse.id })}}">update</a></td>
+
+                </tr>
+
+            {% endfor %}
+
+        </tbody> 
+    </table>
+
+{% endblock %}

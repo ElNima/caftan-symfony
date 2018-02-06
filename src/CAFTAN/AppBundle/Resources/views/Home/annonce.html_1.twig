@@ -1,0 +1,72 @@
+ 
+{% extends "CAFTANAppBundle::base.html.twig" %}
+{% block section %}
+    <div class="corp container">
+        <div class="annonceContent">
+            <h1>{{annonce.title}}:</h1>
+            <div class="annonce">
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-item">
+                        <div class="item-thumb">
+                        
+
+                        <img style="border:1px solid #333;" src="{{ asset(annonce.image.webPath) }}" alt="{{ annonce.image.alt }}">
+                        </div> <!-- /.item-thumb -->
+
+                        <button class="button" name="signaler" >Signaler l'annonce</button>
+
+                        <h3>{{ annonce.annonceur.adress.cp }} {{ annonce.annonceur.adress.localite }}</h3>
+                        <span>Price:  <em class="price">{{ annonce.prix }}€</em></span><br>
+                        
+                        {% if annonce.neuf ==1 %}
+                        <span>Etat:  <em class="price">Nouveau</em></span><br>
+                        {% else %}
+                            <span>Etat:  <em class="price">Usé</em></span><br>
+                        {% endif %}
+                        <span>Création:  <em class="price"><a href="createur.html">{{ annonce.creation }}</a></em></span><br>
+                         <span>Tel:  <em class="price">{{ annonce.annonceur.tel }}</em></span><br>
+                        <div class="annonceDesc">
+                            <p style="color:#333">{{ annonce.descr }}</p>
+                        </div>
+                        {% if userE == annonce.annonceur %}
+                       <a style="border:1px solid #e721d7; padding: 3px;margin-right:10px; background-color: #e721d7; color:#fff;" href="{{path('caftan_app_modifiermonannoncepage', {id: annonce.id})}}" >Modifier </a>
+                        <a style="border:1px solid #e721d7; padding: 3px; background-color: #e721d7; color:#fff;" href="{{path('caftan_app_deletemonannoncepage', {id: annonce.id})}}" >Supprimer </a>
+                        {% endif %}
+
+                    </div> <!-- /.product-item -->
+
+
+                </div> <!-- /.col-md-3 -->
+                <div class="col-md-3 col-sm-6">
+
+                    <h4>Contacter le <a href="{{path('caftan_app_vendeurpage', {'id': annonce.annonceur.id})}}">vendeur</a>:</h4>
+                    {{ form(formm) }}
+                </div>
+                {% for comment in comments %}
+                    {% if comment != null %}
+                        <div class=" col-sm-12 comment">
+
+                            <h4>{{comment.commenter}}</h4><span>le  {{comment.date|date('d/m/Y')}}</span>
+                            <div>
+
+                                <p style="padding:50px;border:1px solid #eee; ">{{comment.comment}}</p>
+
+
+                            </div>
+
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <div class=" col-sm-12 comment">
+
+                    <h4>S'il vous plait laisser un commentaire!</h4>
+                    {{ form(form) }}
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,4 @@
+services:
+#    caftan_admin.example:
+#        class: CAFTAN\AdminBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

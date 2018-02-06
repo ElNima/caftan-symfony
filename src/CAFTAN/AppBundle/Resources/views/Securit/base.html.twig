@@ -1,0 +1,155 @@
+ <!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <title>Caftan à vendre près de chez avec des prix résonables</title>
+    <meta name="description" content="">
+<!--
+
+Sprint Template
+
+http://www.templatemo.com/tm-401-sprint
+
+-->
+    <meta name="viewport" content="width=device-width">
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../../web/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../web/css/normalize.min.css">
+    <link rel="stylesheet" href="../../../web/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../web/css/animate.css">
+    <link rel="stylesheet" href="../../../web/css/templatemo_misc.css">
+    <link rel="stylesheet" href="../../../web/css/templatemo_style.css">
+
+    <script src="../../web/js/vendor/modernizr-2.6.2.min.js"></script>
+     <link rel="stylesheet" href="../../web/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../web/css/normalize.min.css">
+    <link rel="stylesheet" href="../../web/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../web/css/animate.css">
+    <link rel="stylesheet" href="../../web/css/templatemo_misc.css">
+    <link rel="stylesheet" href="../../web/css/templatemo_style.css">
+
+    <script src="../../../web/js/vendor/modernizr-2.6.2.min.js"></script>
+    <!--geocoding library-->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false">
+    </script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/
+    jquery.min.js"></script>
+
+</head>
+<body>
+    <!--[if lt IE 7]>
+    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+  
+   <div class="site-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-6">
+                        <div id="templatemo_logo">
+                            <h1><a href="{{path('caftan_app_homepage')}}">Caftan </a></h1>
+                        </div> <!-- /.logo -->
+                    </div> <!-- /.col-md-4 -->
+                    <div class="col-md-8 col-sm-6 col-xs-6">
+                        <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
+                        <div class="main-menu">
+                            <ul>
+                                <li><a href="{{path('caftan_app_homepage')}}">Home</a></li>
+                                <li><a href="{{path('caftan_app_publierpage')}}">Publier</a></li>
+                                <li><a href="{{path('caftan_app_annoncespage',{page:1})}}">Annonces</a></li>
+                                <li><a href="{{path('caftan_app_contactpage')}}">Contact</a></li>
+                            </ul>
+                        </div> <!-- /.main-menu -->
+                        <div class="menu2">
+                             <ul>
+                                 {% if is_granted('ROLE_USER') %}
+                                     <li><a href="{{path('fos_user_security_logout')}}">Déconnexion</a></li>
+                                     <li><a href="">Profil</a>
+                                    <ul>
+                                        <li><a href="">MonProfil</a></li>
+                                        <li><a href="{{path('caftan_app_mesannoncespage',{id: app.user.id},{page:1})}}">MesAnnonces</a></li>
+                                        <li><a href="{{path('caftan_app_mesmessagespage', {id: app.user.id},{page:1})}}">MesMessages</a></li>
+                                            
+                                    </ul>
+                                
+                                </li>
+                                 {% else %}
+                                    <li><a href="{{path('fos_user_security_login')}}">Connexion</a></li>
+                                {% endif %}
+                                 
+                                 
+                                 
+                                <li class="showB" style="display:none;"><a><input type="text" class="marginR tailleR borderChamp"  name="recherche" /></a></li>
+                                <li ><a ><img id="search" src="../../../web/images/slider/loupe.png" width="30" height="30" /></a></li>
+                               
+                               
+                            </ul>
+                        </div>
+                        
+                    </div> <!-- /.col-md-8 -->
+                   
+                </div> <!-- /.row -->
+                 
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="responsive">
+                            <div class="main-menu">
+                                <ul>
+                                    <li><a href="{{ path('caftan_app_homepage') }}">Home</a></li>
+                                    <li><a href="{{path('caftan_app_publierpage')}}">Publier</a></li>
+                                    <li><a href="{{path('caftan_app_annoncespage', {page:1})}}">Annonces</a></li>
+                                    <li><a href="{{path('caftan_app_contactpage')}}">Contact</a></li>
+                                    
+                               
+                                </ul>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+  </div> 
+    {% block header %}
+    {% endblock %}
+    {% block section %}
+
+    {% endblock %}
+  <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6">
+                    <span id="copyright">
+                    	Copyright &copy; 2017 <a href="#">Naima El Mahi</a>
+                    </span>
+
+            </div> <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-6">
+                    <ul class="social">
+                        <li><a href="#" class="fa fa-facebook"></a></li>
+                        <li><a href="#" class="fa fa-twitter"></a></li>
+                        <li><a href="#" class="fa fa-instagram"></a></li>
+              
+                    </ul>
+                </div> <!-- /.col-md-6 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+
+
+    <script src="../../../web/js/vendor/jquery-1.10.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../../web/js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+    <script src="../../../web/js/jquery.easing-1.3.js"></script>
+    <script src="../../../web/js/bootstrap.js"></script>
+    <script src="../../../web/js/plugins.js"></script>
+    <script src="../../../web/js/main.js"></script>
+    <!-- templatemo 401 sprint -->
+</body>
+</html>
+
+
+ 

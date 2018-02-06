@@ -1,0 +1,61 @@
+<?php
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+namespace CAFTAN\AppBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+/**
+ * Search
+ *
+ * 
+ * @ORM\Entity(repositoryClass="CAFTAN\AppBundle\Repository\SearchRepository")
+ */
+class Search {
+    
+    private $id;
+    
+    private $cp;
+    
+    private $prix;
+    
+    private $neuf;
+    
+    function getId() {
+        return $this->id;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+        function getCp() {
+        return $this->cp;
+    }
+
+    function getPrix() {
+        return $this->prix;
+    }
+
+    function getNeuf() {
+        return $this->neuf;
+    }
+
+    function setCp($cp) {
+        $this->cp = $cp;
+    }
+
+    function setPrix($prix) {
+        $this->prix = $prix;
+    }
+
+    function setNeuf($neuf) {
+        $this->neuf = $neuf;
+    }
+
+    
+    
+}

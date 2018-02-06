@@ -1,0 +1,53 @@
+ 
+{% extends "CAFTANAppBundle::base.html.twig" %}
+{% block section %}
+    <div class="corp container">
+        <div class="annonceContent">
+
+            <div class="annonce row">
+                {% if id==app.user.id %}
+                    {% if messages !=null %}
+                        <h1 class="">Mes messages:</h1>
+
+
+                        <table class="table table-bordered"> 
+
+                            <thead> 
+                                <tr> 
+                                    <td>From</td>
+                                    <td>Subject</td>
+                                    <td>Message</td> 
+                                    <td>date</td> 
+                                </tr> 
+                            </thead> 
+                            <tbody> 
+                                {% for message in messages %}
+                                    <tr>
+                                        <td>{{message.email}}</td>
+                                        <td>{{message.subject}}</td>
+                                        <td>{{message.content}}</td>
+                                        <td>{{message.date|date('d/m/Y')}}</td>
+                                        <td class="btn btn-success"><a href="{{path('caftan_delete_messages', {'id': message.id})}}">delete</a></td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody> 
+                        </table>
+
+                    {% else %}
+                        <div style="height:230px;">
+                            <p style="font-size:30px;">Vous n'avez aucun message pour le moment!</p>
+                        </div>
+                    {% endif %}
+
+                {% else %}
+                    <div style="height:230px;">
+                        <p style="font-size:30px;">Vous n'avez pas accès à cette ressource!</p>
+                    </div>
+                {% endif %} 
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

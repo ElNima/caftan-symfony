@@ -1,0 +1,29 @@
+{% extends "CAFTANAdminBundle::layout.html.twig" %}
+{% block section %}
+    <h1>la table des Annonces </h1>
+
+    <h3>Formulaire d'annonce</h3>
+
+
+    <div class="well">
+         {#{ form_start(form) }}
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+            {{ form_widget(form.neuf, {'attr': {'class': 'form-control'}}) }}
+            {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
+            {{ form_widget(form.creation, {'attr': {'class': 'form-control'}}) }}
+            {{ form_widget(form.descr, {'attr': {'class': 'form-control'}}) }}
+            {%form_theme form "fields.html.twig"%}
+            {{ form_widget(form.annonceur, {'attr': {'class': 'form-control'}}) }}
+            {{ form_widget(form.save, {'attr': {'class': 'form-control'}}) }}
+            
+         {{ form_end(form) }#}
+         
+        {{ form(form) }}
+
+    </div>
+
+    <ul>
+        <li class="btn btn-success"><a href="{{path('caftan_admin_show_annonces')}}">back to list</a></li>
+       
+    </ul>
+{% endblock %}

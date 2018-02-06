@@ -1,0 +1,82 @@
+ 
+{% extends "CAFTANAppBundle::base.html.twig" %}
+{% block section %}
+    <div class="corp container">
+        <div class="annonceContent">
+            <h1>{{annonce.title}}:</h1>
+            <div class="annonce">
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-item">
+                        <div class="item-thumb">
+                        
+
+                        <img style="height:255px !important;" src="{{ asset(annonce.image.webPath) }}" alt="{{ annonce.image.alt }}">
+                        </div> <!-- /.item-thumb -->
+
+                        <!--<div style="width:100px;">{#{form(forms)}#}</div>-->
+
+                        <h3>{{ annonce.annonceur.adress.cp }} {{ annonce.annonceur.adress.localite }}</h3>
+                        <span>Price:  <em class="price">{{ annonce.prix }}€</em></span><br>
+                        
+                        {% if annonce.neuf ==1 %}
+                        <span>Etat:  <em class="price">Nouveau</em></span><br>
+                        {% else %}
+                            <span>Etat:  <em class="price">Usé</em></span><br>
+                        {% endif %}
+                        <span>Création:  <em class="price"><a href="createur.html">{{ annonce.creation }}</a></em></span><br>
+                        {% if annonce.annonceur.tel != NULL %}
+                            <span>Tel:  <em class="price">{{ annonce.annonceur.tel }}</em></span><br>
+                        {% else %}
+                         <span>Tel:  <em class="price">Pas ajouté</em></span><br>
+                         {% endif %}
+                        <div class="annonceDesc">
+                            <p style="color:#333">{{ annonce.descr }}</p>
+                        </div>
+                        {% if userE == annonce.annonceur %}
+                       <a style="border:1px solid #e721d7; padding: 3px;margin-right:10px; background-color: #e721d7; color:#fff;" href="{{path('caftan_app_modifiermonannoncepage', {id: annonce.id})}}" >Modifier </a>
+                        <a style="border:1px solid #e721d7; padding: 3px; background-color: #e721d7; color:#fff;" href="{{path('caftan_app_deletemonannoncepage', {id: annonce.id})}}" >Supprimer </a>
+                        {% endif %}
+
+                    </div> <!-- /.product-item -->
+
+
+                </div> <!-- /.col-md-3 -->
+                <div class="col-md-3 col-sm-6">
+
+                    <h4>Contacter le <a href="{{path('caftan_app_vendeurpage', {'id': annonce.annonceur.id})}}">vendeur</a>:</h4>
+                    {{ form(formm) }}
+                </div>
+                <div class="col-sm-12">
+                    
+                   
+                    
+                    {% for comment in comments %}
+                        <div >
+                        {% if comment.commenter.image != null %}
+                            <img  class="imgcommenter" src="{{asset(comment.commenter.image.webPath)}}" />
+                            {% else %}
+                             <img class="imgcommenter" src="../../../web/images/nosCreateurs/noProfil.jpg" alt="image non ajoutée"> 
+                            {% endif %}
+                        {% if comment.commenter == app.user %}
+                       <span class="commenter">{{comment.commenter.username}} </span>le <span >{{comment.date|date('d/m/y')}}</span><a href="{{path('caftan_app_deletemycomment', {'id': app.user.getId()})}}"><img style="width:40px; margin-left:250px; margin-bottom:-5px;" src="../../../web/images/deleteicon.png" /></a>
+                        {% else %}
+                        <span class="commenter">{{comment.commenter.username}} </span>le <span >{{comment.date|date('d/m/y')}}</span>
+                        {% endif %}
+                        <p class="pos" style='border:1px solid ;padding:30px;width: 400px;'>{{comment.comment}}</p>
+                        
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class=" col-sm-12 comment">
+
+                    <h4>S'il vous plait laisser un commentaire!</h4>
+                    {{ form(form) }}
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

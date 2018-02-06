@@ -1,0 +1,45 @@
+{% extends "CAFTANAdminBundle::layout.html.twig" %}
+{% block section %}
+    <h1>la table Comment </h1>
+   <!-- <ul>
+        <li class="btn btn-success"><a href="{#{path('caftan_admin_create_comments')}#}">create</a></li>
+    </ul>-->
+    <table class="table table-bordered"> 
+
+        <thead> 
+            <tr> 
+                <td>id</td>
+                <td>commenteur</td> 
+                <td>annonce</td> 
+                <td>créateur</td> 
+                <td>commentaire</td> 
+                <td>date</td> 
+                
+                
+
+            </tr> 
+        </thead> 
+        <tbody> 
+
+
+            {% for comment in comments %}
+                <tr>
+                    <td>{{comment.id}}</td>
+                    <td>{{comment.commenter.id}}</td>
+                    <td>{{comment.annonce.id}}</td>
+                    <td>{{comment.createur.id}}</td>
+                    <td>{{comment.comment}}</td>
+                    <td>{{comment.date|date('d/m/Y')}}</td>
+                    
+                    
+                    <td class="btn btn-success"><a href="{{path('caftan_admin_delete_comments', {'id': comment.id})}}">delete</a></td>
+                    <!--<td class="btn btn-success"><a href="{#{path('caftan_admin_update_comments', {'id': comment.id})}#}">update</a></td>-->
+
+                </tr>
+
+            {% endfor %}
+
+        </tbody> 
+    </table>
+
+{% endblock %}
